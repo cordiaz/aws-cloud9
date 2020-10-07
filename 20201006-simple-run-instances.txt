@@ -1,0 +1,9 @@
+aws ec2 run-instances \
+    --image-id ami-015a6758451df3cb9 \
+    --instance-type t2.micro \
+    --count 1 \
+    --subnet-id subnet-0622b74db94a224aa \
+    --key-name demo-session2 \
+    --security-group-ids sg-0e5f50687db0f678f \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=webserver,Value=development}]' \
+    --user-data file://httpd-install.txt
